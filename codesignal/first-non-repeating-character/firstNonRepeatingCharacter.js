@@ -36,3 +36,21 @@ function firstNotRepeatingCharacter(s) {
     // no non-repeating chars exist
     return '_';
 }
+
+// alt solution using array methods:
+
+function firstNotRepeatingCharacter2(s) {
+    const charArr = s.split('');
+    const charSet = new Set(charArr);
+
+    // check for non-repeating chars using arr indexes
+    for (let char of charSet) {
+        if (charArr.indexOf(char) === charArr.lastIndexOf(char)) {
+            return char;
+        }
+    }
+
+    // no non-repeating chars exist
+    return '_';
+}
+
