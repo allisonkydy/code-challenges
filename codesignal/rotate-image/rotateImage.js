@@ -18,23 +18,44 @@
 //      [8, 5, 2],
 //      [9, 6, 3]]
 
+
 // where n is number of elements in image matrix...
 // Time complexity: O(n)
 // Space complexity: O(n) - not ideal
 
+// function rotateImage(a) {
+//     const n = a.length;
+
+//     const matrix = [];
+//     for (let i = 0; i < n; i++) {
+//         matrix.push([]);
+//     }
+
+//     for (let i = 0; i < n; i++) {
+//         for (let j = 0; j < n; j++) {
+//             matrix[j].unshift(a[i][j])
+//         }
+//     }
+
+//     return matrix;
+// }
+
+
+// where n is number of elements in image matrix...
+// Time complexity: O(n)
+// Space complexity: O(i) - better!
+
 function rotateImage(a) {
     const n = a.length;
 
-    const matrix = [];
-    for (let i = 0; i < n; i++) {
-        matrix.push([]);
-    }
+    a.reverse();
 
     for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
-            matrix[j].unshift(a[i][j])
+        for (let j = i; j < n; j++) {
+            // swap values
+            [a[i][j], a[j][i]] = [a[j][i], a[i][j]]
         }
     }
 
-    return matrix;
+    return a;
 }
